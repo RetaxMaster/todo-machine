@@ -16,23 +16,31 @@ import { ChangeAlert } from "../ChangeAlert";
 
 function App(props) {
 
-  const {
-      error, 
-      loading, 
-      searchedTodos, 
-      completeTodo, 
-      deleteTodo,
-      openModal,
-      setOpenModal,
-      totalTodos, 
-      completedTodos,
-      searchValue, 
-      setSearchValue,
-      addTodo,
-      sincronizeTodos,
-  } = useTodos();
+    const {
+        states,
+        stateUpdaters,
+    } = useTodos();
 
-  return (
+    const {
+        error, 
+        loading, 
+        searchedTodos, 
+        totalTodos,
+        completeTodo, 
+        completedTodos,
+        openModal,
+        searchValue,
+    } = states;
+
+    const {
+      setOpenModal,
+      addTodo,
+      deleteTodo,
+      setSearchValue,
+      sincronizeTodos,
+    } = stateUpdaters;
+
+    return (
     <React.Fragment>
 
         <TodoHeader loading={loading}>
@@ -101,7 +109,7 @@ function App(props) {
             sincronize={sincronizeTodos}
         />
     </React.Fragment>
-  );
+    );
 
 }
 
