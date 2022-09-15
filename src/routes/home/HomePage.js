@@ -1,20 +1,20 @@
 import React from "react";
 
-import { useTodos } from "./useTodos";
-import { TodoHeader } from "../TodoHeader";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { TodoForm } from "../TodoForm";
-import { TodosError } from "../TodosError";
-import { TodosLoading } from "../TodosLoading";
-import { EmptyTodos } from "../EmptyTodos";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
-import { ChangeAlert } from "../ChangeAlert";
+import { useTodos } from "../useTodos";
+import { TodoHeader } from "../../ui/TodoHeader";
+import { TodoCounter } from "../../ui/TodoCounter";
+import { TodoSearch } from "../../ui/TodoSearch";
+import { TodoList } from "../../ui/TodoList";
+import { TodoItem } from "../../ui/TodoItem";
+import { TodoForm } from "../../ui/TodoForm";
+import { TodosError } from "../../ui/TodosError";
+import { TodosLoading } from "../../ui/TodosLoading";
+import { EmptyTodos } from "../../ui/EmptyTodos";
+import { CreateTodoButton } from "../../ui/CreateTodoButton";
+import { Modal } from "../../ui/Modal";
+import { ChangeAlert } from "../../ui/ChangeAlert";
 
-function App(props) {
+function HomePage(props) {
 
     const {
         states,
@@ -26,18 +26,18 @@ function App(props) {
         loading, 
         searchedTodos, 
         totalTodos,
-        completeTodo, 
         completedTodos,
         openModal,
         searchValue,
     } = states;
-
+    
     const {
-      setOpenModal,
-      addTodo,
-      deleteTodo,
-      setSearchValue,
-      sincronizeTodos,
+        setOpenModal,
+        completeTodo, 
+        addTodo,
+        deleteTodo,
+        setSearchValue,
+        sincronizeTodos,
     } = stateUpdaters;
 
     return (
@@ -113,4 +113,4 @@ function App(props) {
 
 }
 
-export default App;
+export { HomePage };
