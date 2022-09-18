@@ -5,7 +5,7 @@ import "./TodoForm.css";
 function TodoForm(props) {
 
     const navigate = useNavigate();
-    const [newTodoValue, setNewTodoValue] = React.useState("");
+    const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText || "");
 
     const onWrite = (event) => {
         setNewTodoValue(event.target.value);
