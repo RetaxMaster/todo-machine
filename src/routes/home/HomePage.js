@@ -1,12 +1,12 @@
 import React from "react";
 
 import { useTodos } from "../useTodos";
+import { useNavigate } from "react-router-dom";
 import { TodoHeader } from "../../ui/TodoHeader";
 import { TodoCounter } from "../../ui/TodoCounter";
 import { TodoSearch } from "../../ui/TodoSearch";
 import { TodoList } from "../../ui/TodoList";
 import { TodoItem } from "../../ui/TodoItem";
-import { TodoForm } from "../../ui/TodoForm";
 import { TodosError } from "../../ui/TodosError";
 import { TodosLoading } from "../../ui/TodosLoading";
 import { EmptyTodos } from "../../ui/EmptyTodos";
@@ -15,6 +15,8 @@ import { Modal } from "../../ui/Modal";
 import { ChangeAlert } from "../../ui/ChangeAlert";
 
 function HomePage(props) {
+
+    const navigate = useNavigate();
 
     const {
         states,
@@ -27,14 +29,14 @@ function HomePage(props) {
         searchedTodos, 
         totalTodos,
         completedTodos,
-        openModal,
+        // openModal,
         searchValue,
     } = states;
     
     const {
-        setOpenModal,
+        // setOpenModal,
         completeTodo, 
-        addTodo,
+        // addTodo,
         deleteTodo,
         setSearchValue,
         sincronizeTodos,
@@ -85,7 +87,7 @@ function HomePage(props) {
                 key={todo.id} 
                 text={todo.text}
                 completed={todo.completed}
-                onEdit={() => console.log("Editar TODO")}
+                onEdit={() => navigate("/edit/" + todo.id)}
                 onComplete={() => completeTodo(todo.id)}
                 onDelete={() => deleteTodo(todo.id)}
                 />
@@ -93,17 +95,18 @@ function HomePage(props) {
             
         </TodoList>
 
-        {!!openModal && (
+        {/* {!!openModal && (
             <Modal>
                 <TodoForm
                     addTodo={addTodo}
                     setOpenedModal={setOpenModal}
                 />
             </Modal>  
-        )}      
+        )}  */}     
 
         <CreateTodoButton
-            setOpenModal={setOpenModal}
+            onClick={() => navigate("/new")}
+            // setOpenModal={setOpenModal}
         />
 
         <ChangeAlert
