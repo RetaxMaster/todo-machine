@@ -82,12 +82,12 @@ function HomePage(props) {
 
             {todo => (
                 <TodoItem 
-                key={todo.text} 
+                key={todo.id} 
                 text={todo.text}
                 completed={todo.completed}
                 onEdit={() => console.log("Editar TODO")}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
+                onComplete={() => completeTodo(todo.id)}
+                onDelete={() => deleteTodo(todo.id)}
                 />
             )}
             
